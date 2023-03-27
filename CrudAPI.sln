@@ -5,6 +5,10 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudAPI", "CrudAPI\CrudAPI.csproj", "{F037AACB-17FA-44B3-BBA9-7A260C47EF1E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudAPI.Models", "CrudAPI.Models\CrudAPI.Models.csproj", "{1B079C4E-EAE8-4644-A386-11963AF2F3E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrudAPI.Services", "CrudAPI.Services\CrudAPI.Services.csproj", "{266E9D95-B049-40E2-BAB1-878FFA55BA4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{F037AACB-17FA-44B3-BBA9-7A260C47EF1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F037AACB-17FA-44B3-BBA9-7A260C47EF1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F037AACB-17FA-44B3-BBA9-7A260C47EF1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B079C4E-EAE8-4644-A386-11963AF2F3E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B079C4E-EAE8-4644-A386-11963AF2F3E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B079C4E-EAE8-4644-A386-11963AF2F3E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B079C4E-EAE8-4644-A386-11963AF2F3E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{266E9D95-B049-40E2-BAB1-878FFA55BA4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{266E9D95-B049-40E2-BAB1-878FFA55BA4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{266E9D95-B049-40E2-BAB1-878FFA55BA4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{266E9D95-B049-40E2-BAB1-878FFA55BA4D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,4 @@
-﻿using CrudAPI.Models;
+﻿
 using CrudAPI.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -9,11 +9,11 @@ namespace CrudAPI.Controllers
     [ApiController]
     public class EmployeesController : ControllerBase
     {
-        private readonly EmployeeService _employeeService;
+        private readonly IEmployeeRepository _employeeService;
 
-        public EmployeesController()
+        public EmployeesController(IEmployeeRepository repository)
         {
-            _employeeService = new EmployeeService();
+            _employeeService = repository;
         }
 
         [HttpGet("{id?}")]

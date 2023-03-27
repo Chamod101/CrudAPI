@@ -2,7 +2,7 @@
 
 namespace CrudAPI.Services
 {
-    public class EmployeeService
+    public class EmployeeService : IEmployeeRepository
     {
         public List<Employee> AllEmployees()
         {
