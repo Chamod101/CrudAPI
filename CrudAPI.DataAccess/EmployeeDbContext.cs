@@ -1,4 +1,5 @@
-﻿using CrudAPI.Models;
+﻿using CrudAPI.Models.Department;
+using CrudAPI.Models.Employee;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

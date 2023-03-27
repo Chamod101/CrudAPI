@@ -1,5 +1,6 @@
 ﻿using CrudAPI.DataAccess;
 using CrudAPI.Models;
+using CrudAPI.Models.Department;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,8 +25,24 @@ namespace CrudAPI.Services.Departments
         public Department AddDepartment(Department department)
         {
             _employeeDbContext.departments.Add(department);
-            _employeeDbContext.SaveChanges();
+            SaveChanges();
             return department;
+        }
+
+        public void SaveChanges()
+        {
+            _employeeDbContext.SaveChanges();
+        }
+
+        public Department FindId(Guid id)
+        {
+            return _employeeDbContext.departments.Find(id);
+        }
+
+        public void Remove(Department department)
+        {
+            _employeeDbContext.Remove(department);
+            SaveChanges();
         }
     }
 }

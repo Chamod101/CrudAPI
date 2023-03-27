@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CrudAPI.Models
+namespace CrudAPI.Models.Department
 {
     public class AddDepartments
     {

@@ -1,5 +1,5 @@
 ﻿using CrudAPI.DataAccess;
-using CrudAPI.Models;
+using CrudAPI.Models.Employee;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,8 +25,25 @@ namespace CrudAPI.Services.Employees
         public Employee AddEmployee(Employee employee)
         {
             _employeeDbContext.employees.Add(employee);
-            _employeeDbContext.SaveChanges();
+            SaveChanges();
             return employee;
         }
+
+        public void SaveChanges()
+        {
+            _employeeDbContext.SaveChanges();
+        }
+
+        public Employee FindId(Guid id)
+        {
+            return _employeeDbContext.employees.Find(id);
+        }
+
+        public void Remove(Employee employee)
+        {
+            _employeeDbContext.Remove(employee);
+            SaveChanges();
+        }
+
     }
 }

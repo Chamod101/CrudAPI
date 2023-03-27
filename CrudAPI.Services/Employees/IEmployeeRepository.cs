@@ -1,4 +1,4 @@
-﻿using CrudAPI.Models;
+﻿using CrudAPI.Models.Employee;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +14,10 @@ namespace CrudAPI.Services.Employees
         public Employee GetEmployee(Guid id);
 
         public Employee AddEmployee(Employee employee);
+
+        public Employee FindId(Guid id);
+        public void SaveChanges();
+
+        public void Remove(Employee employee);
     }
 }

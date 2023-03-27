@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace CrudAPI.Models
+namespace CrudAPI.Models.Employee
 {
-    public class AddEmployee
+    public class Employee
     {
-      
+        public Guid Id { get; set; }
+
         [Required]
         [MaxLength(150)]
         public string? FirstName { get; set; }
@@ -27,5 +23,8 @@ namespace CrudAPI.Models
         public long Salary { get; set; }
         [Required]
         public int DepartmentId { get; set; }
+
+
+
     }
 }

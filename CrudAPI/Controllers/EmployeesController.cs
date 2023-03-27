@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using CrudAPI.Models;
+using CrudAPI.Models.Employee;
 using CrudAPI.Services.Employees;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -60,6 +60,43 @@ namespace CrudAPI.Controllers
             return Ok(result);
         }
 
-       
+        [HttpPut]
+        [Route("{id:guid}")]
+        public IActionResult UpdateEmployee([FromRoute]Guid id,UpdateEmployee updateEmployee)
+        {
+            var employee=_employeeService.FindId(id);
+
+            if(employee != null)
+            {
+                employee.FirstName = updateEmployee.FirstName;
+                employee.LastName = updateEmployee.LastName;
+                employee.Email = updateEmployee.Email;
+                employee.DOB = updateEmployee.DOB;
+                employee.Age = updateEmployee.Age;
+                employee.Salary = updateEmployee.Salary;
+                employee.DepartmentId = updateEmployee.DepartmentId;
+
+                _employeeService.SaveChanges();
+                return Ok(employee);
+            }
+
+            return NotFound();
+        }
+
+
+        [HttpDelete]
+        [Route("{id:guid}")]
+        public IActionResult DeleteEmployee([FromRoute] Guid id)
+        {
+            var employee = _employeeService.FindId(id);
+
+            if (employee != null)
+            {
+                _employeeService.Remove(employee);
+                return Ok(employee);
+            }
+
+            return NotFound();
+        }
     }
 }

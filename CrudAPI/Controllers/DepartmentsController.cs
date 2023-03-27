@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using CrudAPI.Models;
+using CrudAPI.Models.Department;
 using CrudAPI.Services.Departments;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -53,6 +54,40 @@ namespace CrudAPI.Controllers
 
             var result = _service.AddDepartment(department);
             return Ok(result);
+        }
+
+        [HttpPut]
+        [Route("{id:guid}")]
+        public IActionResult UpdateDepartment([FromRoute] Guid id, UpdateDepartment updateDepartment)
+        {
+            var department = _service.FindId(id);
+
+            if (department != null)
+            {
+                department.DepartmentName = updateDepartment.DepartmentName;
+
+
+
+                _service.SaveChanges();
+                return Ok(department);
+            }
+
+            return NotFound();
+        }
+
+        [HttpDelete]
+        [Route("{id:guid}")]
+        public IActionResult DeleteDepartment([FromRoute] Guid id)
+        {
+            var department = _service.FindId(id);
+
+            if (department != null)
+            {
+                _service.Remove(department);
+                return Ok(department);
+            }
+
+            return NotFound();
         }
     }
 }

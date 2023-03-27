@@ -5,12 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CrudAPI.Models
+namespace CrudAPI.Models.Department
 {
-    public class Department
+    public class UpdateDepartment
     {
-        public Guid Id { get; set; }
-
         [Required]
         [MaxLength(150)]
         public string? DepartmentName { get; set; }

@@ -1,4 +1,5 @@
 ﻿using CrudAPI.Models;
+using CrudAPI.Models.Department;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,10 @@ namespace CrudAPI.Services.Departments
         public Department GetDepartment(Guid id);
 
         public Department AddDepartment(Department department);
+
+        public Department FindId(Guid id);
+        public void SaveChanges();
+
+        public void Remove(Department department);
     }
 }
