@@ -26,6 +26,12 @@ namespace CrudAPI.Controllers
         public IActionResult GetDepartment(int id)
         {
             var department =_service.GetDepartment(id);
+
+            if(department is null)
+            {
+                return NotFound();
+            };
+
             return Ok(department);
         }
     }

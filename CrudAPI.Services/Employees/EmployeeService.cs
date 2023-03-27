@@ -46,5 +46,10 @@ namespace CrudAPI.Services.Employees
 
             return employees;
         }
+
+        public Employee GetEmployee(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

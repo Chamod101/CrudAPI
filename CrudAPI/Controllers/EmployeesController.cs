@@ -15,14 +15,23 @@ namespace CrudAPI.Controllers
             _employeeService = repository;
         }
 
-        [HttpGet("{id?}")]
-        public IActionResult GetEmployees(int? id)
+        [HttpGet]
+        public IActionResult GetEmployees()
         {
             var myEmployees = _employeeService.AllEmployees();
-            if (id is null) return Ok(myEmployees);
-
-            myEmployees=myEmployees.Where(t => t.Id == id).ToList();
+            
             return Ok(myEmployees);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetEmployee(int id)
+        {
+            var employee = _employeeService.GetEmployee(id);
+            if(employee == null)
+            {
+                return NotFound();
+            }
+            return Ok(employee);
         }
 
        

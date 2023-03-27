@@ -17,5 +17,7 @@
         public long Salary { get; set; }
 
         public int DepartmentId { get; set; }
+
+        
     }
 }

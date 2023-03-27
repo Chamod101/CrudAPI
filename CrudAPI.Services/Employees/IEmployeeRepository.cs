@@ -10,5 +10,7 @@ namespace CrudAPI.Services.Employees
     public interface IEmployeeRepository
     {
         public List<Employee> AllEmployees();
+
+        public Employee GetEmployee(int id);
     }
 }
