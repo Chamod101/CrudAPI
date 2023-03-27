@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using CrudAPI.Models;
+using CrudAPI.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CrudAPI.Controllers
@@ -7,32 +9,23 @@ namespace CrudAPI.Controllers
     [ApiController]
     public class EmployeesController : ControllerBase
     {
-        [HttpGet]
-        public IActionResult Employees()
+        private readonly EmployeeService _employeeService;
+
+        public EmployeesController()
         {
-            var employees = new string[] { "emplyee1", "employee2", "employee3" };
-            return Ok(employees);
+            _employeeService = new EmployeeService();
         }
 
-        [HttpPost]
-        public IActionResult NewEmployee()
+        [HttpGet("{id?}")]
+        public IActionResult GetEmployees(int? id)
         {
-            return Ok();
+            var myEmployees = _employeeService.AllEmployees();
+            if (id is null) return Ok(myEmployees);
+
+            myEmployees=myEmployees.Where(t => t.Id == id).ToList();
+            return Ok(myEmployees);
         }
 
-        [HttpPut]
-        public IActionResult UpdateEmployee()
-        {
-            return Ok();
-        }
-
-        [HttpDelete]
-        public IActionResult DeleteEmployee()
-        {
-            var somthingHappend = true;
-            if (somthingHappend) return BadRequest();
-
-            return Ok();
-        }
+       
     }
 }
