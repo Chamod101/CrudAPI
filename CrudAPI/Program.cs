@@ -1,4 +1,5 @@
-using CrudAPI.Services;
+using CrudAPI.Services.Departments;
+using CrudAPI.Services.Employees;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IEmployeeRepository,EmployeeSqlService>();
+builder.Services.AddScoped<IDepartmentRepository,DepartmentSqlServer>();
 
 var app = builder.Build();
 

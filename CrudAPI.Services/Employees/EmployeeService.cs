@@ -1,6 +1,6 @@
 ﻿using CrudAPI.Models;
 
-namespace CrudAPI.Services
+namespace CrudAPI.Services.Employees
 {
     public class EmployeeService : IEmployeeRepository
     {

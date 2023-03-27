@@ -24,7 +24,8 @@ namespace CrudAPI.DataAccess
             {
                 new Department{Id=1,DepartmentName="IT"},
                 new Department{Id=2,DepartmentName="Marketing"},
-                new Department{Id=3,DepartmentName="HR"}
+                new Department{Id=3,DepartmentName="HR"},
+                 new Department{Id=4,DepartmentName="Research"}
             });
 
             modelBuilder.Entity<Employee>().HasData(new Employee[]
@@ -52,6 +53,19 @@ namespace CrudAPI.DataAccess
                 Age = 10,
                 Salary = 100,
                 DepartmentId=3
+
+
+                },
+                 new Employee
+                {
+                Id = 3,
+                FirstName = "Steve DB",
+                LastName = "Perera",
+                Email = "Amasha@gmail.com",
+                DOB = DateTime.Now,
+                Age = 10,
+                Salary = 100,
+                DepartmentId=2
 
 
                 }

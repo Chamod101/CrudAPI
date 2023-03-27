@@ -1,11 +1,10 @@
-﻿
-using CrudAPI.Services;
+﻿using CrudAPI.Services.Employees;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CrudAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/employees")]
     [ApiController]
     public class EmployeesController : ControllerBase
     {

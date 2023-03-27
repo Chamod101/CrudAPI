@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CrudAPI.Services
+namespace CrudAPI.Services.Employees
 {
     public class EmployeeSqlService : IEmployeeRepository
     {
