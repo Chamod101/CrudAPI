@@ -15,5 +15,7 @@
         public int Age { get; set; }
 
         public long Salary { get; set; }
+
+        public int DepartmentId { get; set; }
     }
 }

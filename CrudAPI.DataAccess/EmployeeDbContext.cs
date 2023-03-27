@@ -11,7 +11,7 @@ namespace CrudAPI.DataAccess
     public class EmployeeDbContext :DbContext
     {
         public DbSet<Employee> employees { get; set; }
-
+        public DbSet<Department> departments { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connectionString = "server=DESKTOP-N11AEAV; database=Company;TrustServerCertificate=true;Integrated Security=True ";
@@ -20,6 +20,13 @@ namespace CrudAPI.DataAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Department>().HasData(new Department[]
+            {
+                new Department{Id=1,DepartmentName="IT"},
+                new Department{Id=2,DepartmentName="Marketing"},
+                new Department{Id=3,DepartmentName="HR"}
+            });
+
             modelBuilder.Entity<Employee>().HasData(new Employee[]
             {
                 new Employee
@@ -30,7 +37,22 @@ namespace CrudAPI.DataAccess
                 Email = "Chamod@gmail.com",
                 DOB = DateTime.Now,
                 Age = 10,
-                Salary = 100
+                Salary = 100,
+                DepartmentId=1
+                
+
+                },
+                 new Employee
+                {
+                Id = 2,
+                FirstName = "Amasha DB",
+                LastName = "Perera",
+                Email = "Amasha@gmail.com",
+                DOB = DateTime.Now,
+                Age = 10,
+                Salary = 100,
+                DepartmentId=3
+
 
                 }
             });
