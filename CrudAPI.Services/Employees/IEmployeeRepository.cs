@@ -11,6 +11,8 @@ namespace CrudAPI.Services.Employees
     {
         public List<Employee> AllEmployees();
 
-        public Employee GetEmployee(int id);
+        public Employee GetEmployee(Guid id);
+
+        public Employee AddEmployee(Employee employee);
     }
 }

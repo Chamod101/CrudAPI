@@ -11,6 +11,8 @@ namespace CrudAPI.Services.Departments
     {
         public List<Department> departments();
 
-        public Department GetDepartment(int id);
+        public Department GetDepartment(Guid id);
+
+        public Department AddDepartment(Department department);
     }
 }

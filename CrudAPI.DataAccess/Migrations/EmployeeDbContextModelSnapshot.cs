@@ -24,11 +24,9 @@ namespace CrudAPI.DataAccess.Migrations
 
             modelBuilder.Entity("CrudAPI.Models.Department", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("DepartmentName")
                         .IsRequired()
@@ -38,37 +36,13 @@ namespace CrudAPI.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("departments");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DepartmentName = "IT"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            DepartmentName = "Marketing"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            DepartmentName = "HR"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            DepartmentName = "Research"
-                        });
                 });
 
             modelBuilder.Entity("CrudAPI.Models.Employee", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("Age")
                         .HasColumnType("int");
@@ -100,41 +74,6 @@ namespace CrudAPI.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("employees");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Age = 10,
-                            DOB = new DateTime(2023, 3, 27, 13, 40, 7, 890, DateTimeKind.Local).AddTicks(756),
-                            DepartmentId = 1,
-                            Email = "Chamod@gmail.com",
-                            FirstName = "Chamod DB",
-                            LastName = "Perera",
-                            Salary = 100L
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Age = 10,
-                            DOB = new DateTime(2023, 3, 27, 13, 40, 7, 890, DateTimeKind.Local).AddTicks(778),
-                            DepartmentId = 3,
-                            Email = "Amasha@gmail.com",
-                            FirstName = "Amasha DB",
-                            LastName = "Perera",
-                            Salary = 100L
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Age = 10,
-                            DOB = new DateTime(2023, 3, 27, 13, 40, 7, 890, DateTimeKind.Local).AddTicks(781),
-                            DepartmentId = 2,
-                            Email = "Amasha@gmail.com",
-                            FirstName = "Steve DB",
-                            LastName = "Perera",
-                            Salary = 100L
-                        });
                 });
 #pragma warning restore 612, 618
         }

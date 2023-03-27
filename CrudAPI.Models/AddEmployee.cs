@@ -5,24 +5,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CrudAPI.Services.Models
+namespace CrudAPI.Models
 {
-    public class EmployeeDto
+    public class AddEmployee
     {
-        public int Id { get; set; }
-
+      
+        [Required]
+        [MaxLength(150)]
         public string? FirstName { get; set; }
-        
+        [Required]
+        [MaxLength(150)]
         public string? LastName { get; set; }
-        
+        [Required]
+        [MaxLength(150)]
         public string? Email { get; set; }
-        
+        [Required]
         public DateTime DOB { get; set; }
-        
+        [Required]
         public int Age { get; set; }
-       
+        [Required]
         public long Salary { get; set; }
-       
+        [Required]
         public int DepartmentId { get; set; }
     }
 }

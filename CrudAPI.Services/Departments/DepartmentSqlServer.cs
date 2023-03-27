@@ -16,9 +16,16 @@ namespace CrudAPI.Services.Departments
             return _employeeDbContext.departments.ToList();
         }
 
-        public Department GetDepartment(int id)
+        public Department GetDepartment(Guid id)
         {
             return _employeeDbContext.departments.Find(id);
+        }
+
+        public Department AddDepartment(Department department)
+        {
+            _employeeDbContext.departments.Add(department);
+            _employeeDbContext.SaveChanges();
+            return department;
         }
     }
 }

@@ -18,58 +18,6 @@ namespace CrudAPI.DataAccess
             optionsBuilder.UseSqlServer(connectionString);
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Department>().HasData(new Department[]
-            {
-                new Department{Id=1,DepartmentName="IT"},
-                new Department{Id=2,DepartmentName="Marketing"},
-                new Department{Id=3,DepartmentName="HR"},
-                 new Department{Id=4,DepartmentName="Research"}
-            });
-
-            modelBuilder.Entity<Employee>().HasData(new Employee[]
-            {
-                new Employee
-                {
-                Id = 1,
-                FirstName = "Chamod DB",
-                LastName = "Perera",
-                Email = "Chamod@gmail.com",
-                DOB = DateTime.Now,
-                Age = 10,
-                Salary = 100,
-                DepartmentId=1
-                
-
-                },
-                 new Employee
-                {
-                Id = 2,
-                FirstName = "Amasha DB",
-                LastName = "Perera",
-                Email = "Amasha@gmail.com",
-                DOB = DateTime.Now,
-                Age = 10,
-                Salary = 100,
-                DepartmentId=3
-
-
-                },
-                 new Employee
-                {
-                Id = 3,
-                FirstName = "Steve DB",
-                LastName = "Perera",
-                Email = "Amasha@gmail.com",
-                DOB = DateTime.Now,
-                Age = 10,
-                Salary = 100,
-                DepartmentId=2
-
-
-                }
-            });
-        }
+        
     }
 }

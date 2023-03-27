@@ -4,7 +4,7 @@ namespace CrudAPI.Models
 {
     public class Employee
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [Required]
         [MaxLength(150)]

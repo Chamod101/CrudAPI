@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using CrudAPI.Models;
 using CrudAPI.Services.Departments;
-using CrudAPI.Services.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,25 +11,25 @@ namespace CrudAPI.Controllers
     public class DepartmentsController : ControllerBase
     {
         private readonly IDepartmentRepository _service;
-        private readonly IMapper _mapper;
-        public DepartmentsController(IDepartmentRepository service,IMapper mapper)
+        
+        public DepartmentsController(IDepartmentRepository service)
         {
             _service = service;
-            _mapper = mapper;
+            
         }
 
         [HttpGet]
-        public ActionResult<ICollection<DepartmentDto>> GetDepartments()
+        public ActionResult<ICollection<Department>> GetDepartments()
         {
             var departments = _service.departments();
 
-            var mapDepartments=_mapper.Map<ICollection<DepartmentDto>>(departments);
+            
 
-            return Ok(mapDepartments);
+            return Ok(departments);
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetDepartment(int id)
+        public IActionResult GetDepartment(Guid id)
         {
             var department =_service.GetDepartment(id);
 
@@ -39,9 +38,21 @@ namespace CrudAPI.Controllers
                 return NotFound();
             };
 
-            var mapDepartment = _mapper.Map<DepartmentDto>(department);
 
-            return Ok(mapDepartment);
+            return Ok(department);
+        }
+
+        [HttpPost]
+        public IActionResult AddnewDepartment(AddDepartments addDepartments)
+        {
+            var department = new Department
+            {
+                Id = Guid.NewGuid(),
+                DepartmentName = addDepartments.DepartmentName
+            };
+
+            var result = _service.AddDepartment(department);
+            return Ok(result);
         }
     }
 }

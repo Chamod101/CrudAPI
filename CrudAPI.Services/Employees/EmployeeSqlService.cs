@@ -17,9 +17,16 @@ namespace CrudAPI.Services.Employees
             return _employeeDbContext.employees.ToList();
         }
 
-        public Employee GetEmployee(int id)
+        public Employee GetEmployee(Guid id)
         {
             return _employeeDbContext.employees.Find(id);
+        }
+
+        public Employee AddEmployee(Employee employee)
+        {
+            _employeeDbContext.employees.Add(employee);
+            _employeeDbContext.SaveChanges();
+            return employee;
         }
     }
 }
