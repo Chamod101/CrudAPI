@@ -18,6 +18,7 @@
 
         public int DepartmentId { get; set; }
 
+
         
     }
 }
