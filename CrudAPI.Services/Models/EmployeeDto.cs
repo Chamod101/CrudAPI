@@ -1,30 +1,28 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace CrudAPI.Models
+namespace CrudAPI.Services.Models
 {
-    public class Employee
+    public class EmployeeDto
     {
         public int Id { get; set; }
 
-        [Required]
-        [MaxLength(150)]
         public string? FirstName { get; set; }
-        [Required]
-        [MaxLength(150)]
-        public string? LastName { get; set; }
-        [Required]
-        [MaxLength(150)]
-        public string? Email { get; set; }
-        [Required]
-        public DateTime DOB { get; set; }
-        [Required]
-        public int Age { get; set; }
-        [Required]
-        public long Salary { get; set; }
-        [Required]
-        public int DepartmentId { get; set; }
-
-
         
+        public string? LastName { get; set; }
+        
+        public string? Email { get; set; }
+        
+        public DateTime DOB { get; set; }
+        
+        public int Age { get; set; }
+       
+        public long Salary { get; set; }
+       
+        public int DepartmentId { get; set; }
     }
 }

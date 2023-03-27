@@ -1,4 +1,7 @@
-﻿using CrudAPI.Services.Employees;
+﻿using AutoMapper;
+using CrudAPI.Models;
+using CrudAPI.Services.Employees;
+using CrudAPI.Services.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,18 +12,21 @@ namespace CrudAPI.Controllers
     public class EmployeesController : ControllerBase
     {
         private readonly IEmployeeRepository _employeeService;
+        private readonly IMapper _mapper;
 
-        public EmployeesController(IEmployeeRepository repository)
+        public EmployeesController(IEmployeeRepository repository,IMapper mapper)
         {
             _employeeService = repository;
+            _mapper = mapper;
         }
 
         [HttpGet]
-        public IActionResult GetEmployees()
+        public ActionResult<ICollection<EmployeeDto>> GetEmployees()
         {
             var myEmployees = _employeeService.AllEmployees();
-            
-            return Ok(myEmployees);
+            var mapEmployeess = _mapper.Map<ICollection<EmployeeDto>>(myEmployees);
+
+            return Ok(mapEmployeess);
         }
 
         [HttpGet("{id}")]
@@ -31,7 +37,10 @@ namespace CrudAPI.Controllers
             {
                 return NotFound();
             }
-            return Ok(employee);
+
+            var mapEmployee = _mapper.Map<EmployeeDto>(employee);
+
+            return Ok(mapEmployee);
         }
 
        
