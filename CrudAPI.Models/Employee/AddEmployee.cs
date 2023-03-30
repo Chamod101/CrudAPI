@@ -26,6 +26,6 @@ namespace CrudAPI.Models.Employee
         [Required]
         public long Salary { get; set; }
         [Required]
-        public int DepartmentId { get; set; }
+        public string? DepartmentName { get; set; }
     }
 }

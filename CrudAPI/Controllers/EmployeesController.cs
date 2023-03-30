@@ -53,7 +53,7 @@ namespace CrudAPI.Controllers
                 DOB = addEmployee.DOB,
                 Age = addEmployee.Age,
                 Salary = addEmployee.Salary,
-                DepartmentId = addEmployee.DepartmentId
+                DepartmentName = addEmployee.DepartmentName
             };
             
             var result=_employeeService.AddEmployee(employee);
@@ -74,7 +74,7 @@ namespace CrudAPI.Controllers
                 employee.DOB = updateEmployee.DOB;
                 employee.Age = updateEmployee.Age;
                 employee.Salary = updateEmployee.Salary;
-                employee.DepartmentId = updateEmployee.DepartmentId;
+                employee.DepartmentName = updateEmployee.DepartmentName;
 
                 _employeeService.SaveChanges();
                 return Ok(employee);
