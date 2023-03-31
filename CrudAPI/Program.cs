@@ -1,3 +1,4 @@
+using CrudAPI.Converters;
 using CrudAPI.Services.Departments;
 using CrudAPI.Services.Employees;
 
@@ -14,6 +15,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IEmployeeRepository,EmployeeSqlService>();
 builder.Services.AddScoped<IDepartmentRepository,DepartmentSqlServer>();
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.Converters.Add(new DateConverter());
+});
 builder.Services.AddCors(p => p.AddPolicy("corspolicy", build =>
 {
     build.WithOrigins("*").AllowAnyMethod().AllowAnyHeader();

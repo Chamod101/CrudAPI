@@ -16,6 +16,7 @@ namespace CrudAPI.Models.Employee
         [MaxLength(150)]
         public string? Email { get; set; }
         [Required]
+        
         public DateTime DOB { get; set; }
         [Required]
         public int Age { get; set; }
